@@ -1,0 +1,167 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Store</title>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        /* === General Styles === */
+        body { 
+            margin: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: #fff; 
+            color: #1d1d1f; 
+        }
+        a { text-decoration: none; color: inherit; }
+        h1,h2,h3,p { margin: 0; padding: 0; }
+        section { padding: 80px 20px; text-align: center; }
+
+        /* === Navbar === */
+        .navbar { background-color: #1a1a1a; color: #fbfbff; padding: 10px 0; position: sticky; top: 0; width: 100%; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: flex-start; gap: 40px; }
+        .logo { margin-right: auto; }
+        .logo a { font-size: 1.3rem; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 6px; }
+        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links a { color: #fefeff; font-size: 0.95rem; font-weight: 500; }
+        .nav-links a:hover { color: #575a5c; }
+        .search-bar { position: relative; display: flex; align-items: center; margin-left: 20px; }
+        .search-bar input { padding: 6px 30px 6px 10px; border-radius: 20px; border: none; outline: none; background-color: #2c2c2e; color: #fff; width: 160px; transition: width 0.4s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
+        .search-bar input:focus { width: 250px; background-color: #3a3a3c; box-shadow: 0 0 8px rgba(255,255,255,0.5); }
+        .search-bar .icon { position: absolute; right: 10px; font-size: 1rem; color: #a1a1a1; }
+        .nav-icons a { margin-left: 15px; font-size: 1.1rem; color: #fff; }
+
+        /* === Hero === */
+        .hero { background: url('https://www.apple.com/v/home/be/images/heroes/iphone-15-pro/hero_iphone15pro__i70z9oz3hj2i_large.jpg') center/cover no-repeat; color: white; height: 90vh; display: flex; align-items: center; justify-content: center; }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 20px; }
+        .hero-buttons .btn { margin: 0 10px; padding: 10px 25px; border-radius: 25px; font-weight: 500; transition: all 0.3s ease; }
+        .btn.secondary { background-color: transparent; border: 1px solid #fff; color: #fff; }
+        .btn.secondary:hover { background-color: #fff; color: #1a1a1a; }
+        .btn.black { background-color: #000; color: #fff; border: none; padding: 10px 25px; border-radius: 25px; font-weight: 500; cursor: pointer; display: inline-block; transition: all 0.3s ease; }
+        .btn.black:hover { background-color: #333; transform: translateY(-3px); }
+
+        /* === Product Sections === */
+        .product-section { max-width: 1300px; margin: 0 auto; padding: 60px 20px; }
+        .product-section h2 { font-size: 2rem; margin-bottom: 40px; }
+        .product-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 25px; scroll-behavior: smooth; padding-bottom: 10px; scrollbar-width: none; -ms-overflow-style: none; }
+        .product-grid::-webkit-scrollbar { display: none; }
+        .product { flex: 0 0 220px; background-color: #f5f5f7; border-radius: 15px; padding: 15px; text-align: center; transition: transform 0.3s; }
+        .product img { width: 100%; border-radius: 12px; margin-bottom: 10px; }
+        .product:hover { transform: scale(1.05); }
+
+        /* === Newsletter === */ .newsletter { background: #1d1d1f; color: #fff; padding: 70px 20px; } .newsletter input { padding: 10px 15px; border: none; border-radius: 20px; width: 250px; margin-right: 10px; }
+
+        /* === Footer === */
+        footer { background-color: #f5f5f7; color: #6e6e73; padding: 40px 20px; text-align: center; font-size: 0.9rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-links { list-style: none; display: flex; justify-content: center; gap: 20px; padding: 10px 0 0 0; margin: 0; }
+        .footer-links a { color: #6e6e73; font-weight: 500; transition: color 0.3s; }
+        .footer-links a:hover { color: #0b0d0e; }
+        @media (max-width: 768px) { .footer-links { flex-direction: column; gap: 10px; } }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="/"> Apple Store</a></div>
+            <ul class="nav-links">
+                <li><a href="#mac-section">Mac</a></li>
+                <li><a href="#ipad-section">iPad</a></li>
+                <li><a href="#iphone-section">iPhone</a></li>
+                <li><a href="#watch-section">Watch</a></li>
+                <li><a href="#accessories-section">Accessories</a></li>
+                <li><a href="#support-section">Support</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search Apple.com"><span class="icon">🔍</span>
+            </div>
+            <div class="nav-icons"><a href="#" class="cart-icon">🛒</a></div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>iPhone 15 Pro</h1>
+            <p>Forged in titanium. Designed for performance.</p>
+            <div class="hero-buttons">
+                <!-- ✅ Buttons now work -->
+                <a href="{% url 'learn_more' 'iPhone' %}" class="btn secondary">Learn more</a>
+                <a href="{% url 'buy_product' 1 %}" class="btn secondary">Buy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Sections -->
+    {% for section in product_sections %}
+    <section id="{{ section.name|lower }}-section" class="product-section">
+        <h2>{{ section.name }}</h2>
+        <div class="product-grid">
+            {% for product in section.products %}
+            <div class="product">
+                {% if product.image %}
+                    <img src="{{ product.image }}" alt="{{ product.name }}"width="200" height="200">
+                {% else %}
+                    <img src="{% static 'images/placeholder.png' %}" alt="No Image" width="200" height="200">
+                {% endif %}
+
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <a href="{% url 'product_detail' product.id %}" class="btn black">Shop now</a>
+                <!-- ✅ Added working Learn More -->
+                <a href="{% url 'learn_more' section.name %}" class="btn black" style="margin-top:5px;">Learn more</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+
+    <!-- Support Section -->
+    <section id="support-section" class="product-section">
+        <h2>Support</h2>
+        <p>Get help, guides, and support for all your Apple products.</p>
+        <div class="product-grid" style="flex-wrap: wrap; justify-content: center;">
+            <div class="product" style="flex: 0 0 250px;">
+                <h3>AppleCare & Warranty</h3>
+                <p>Learn about AppleCare plans, check your coverage, and get repair options.</p>
+                <a href="{% url 'learn_more' 'Support' %}" class="btn black">Learn More</a>
+            </div>
+            <div class="product" style="flex: 0 0 250px;">
+                <h3>Manuals & User Guides</h3>
+                <p>Find user guides, setup instructions, and tips for your Apple devices.</p>
+                <a href="{% url 'learn_more' 'Guides' %}" class="btn black">View Guides</a>
+            </div>
+            <div class="product" style="flex: 0 0 250px;">
+                <h3>Troubleshooting</h3>
+                <p>Fix common issues with your iPhone, Mac, iPad, Watch, or Accessories.</p>
+                <a href="{% url 'learn_more' 'Troubleshooting' %}" class="btn black">Get Help</a>
+            </div>
+            <div class="product" style="flex: 0 0 250px;">
+                <h3>Contact Support</h3>
+                <p>Chat, call, or schedule a visit with an Apple Support representative.</p>
+                <a href="{% url 'learn_more' 'Contact' %}" class="btn black">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter --> <section class="newsletter"> <h3>Stay in the loop</h3> <p>Get updates about new Apple products and offers.</p> <form method="POST" action="#"> {% csrf_token %} <input type="email" name="email" placeholder="Enter your email" required><br> <button type="submit" class="btn black">Subscribe</button> </form> </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>© 2025 Apple Store Project </p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

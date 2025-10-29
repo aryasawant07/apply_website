@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Buy {{ product.name }}{% endblock %}
+
+{% block content %}
+<section style="padding:80px 20px;text-align:center;">
+    <h1>Buy {{ product.name }}</h1>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width:300px;height:auto;margin:20px 0;">
+    <p>{{ product.description }}</p>
+    <h2>Price: ₹{{ product.price }}</h2>
+    <button style="padding:10px 25px;background-color:black;color:white;border:none;border-radius:25px;">
+        Proceed to Checkout
+    </button>
+</section>
+{% endblock %}
