@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Checkout {{ product.name }}{% endblock %}
+
+{% block content %}
+<section style="padding:80px 20px; text-align:center;">
+    <h1>Checkout {{ product.name }}</h1>
+    <p>Price: ₹{{ product.price }}</p>
+    <p>Proceed to payment gateway here...</p>
+</section>
+{% endblock %}
